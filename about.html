@@ -87,8 +87,35 @@
 <a class="text-[#e9c176] border-b-2 border-[#e9c176] pb-1" href="about.html">About Us</a>
 <a class="text-slate-600 dark:text-slate-400 hover:text-[#000a1e] dark:hover:text-white transition-colors" href="contact.html">Contact</a>
 </div>
-<a href="contact.html" class="bg-primary text-on-primary px-6 py-2.5 rounded-sm font-headline font-bold text-sm tracking-tight scale-95 active:scale-90 transition-transform inline-block">Inquire Now</a>
+<div class="flex items-center gap-4">
+<a href="contact.html" class="hidden sm:inline-block bg-primary text-on-primary px-6 py-2.5 rounded-sm font-headline font-bold text-sm tracking-tight scale-95 active:scale-90 transition-transform">Inquire Now</a>
+<button id="mobile-menu-button" class="md:hidden flex items-center justify-center p-2 text-primary dark:text-white">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
 </div>
+</div>
+
+<!-- Mobile Menu Drawer -->
+<div id="mobile-menu-drawer" class="fixed inset-0 z-[60] bg-white dark:bg-[#000a1e] transition-transform duration-300 translate-x-full md:hidden">
+<div class="flex flex-col h-full">
+<div class="flex justify-between items-center px-8 py-6 border-b border-slate-100 dark:border-white/5">
+<span class="text-xl font-black tracking-tighter text-[#000a1e] dark:text-white uppercase">Menu</span>
+<button id="close-menu-button" class="p-2 text-primary dark:text-white">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+<nav class="flex-1 px-8 py-12 flex flex-col space-y-8">
+<a class="text-4xl font-headline font-black text-slate-400 hover:text-primary dark:hover:text-white" href="index.html">Home</a>
+<a class="text-4xl font-headline font-black text-slate-400 hover:text-primary dark:hover:text-white" href="services.html">Services</a>
+<a class="text-4xl font-headline font-black text-[#e9c176]" href="about.html">About Us</a>
+<a class="text-4xl font-headline font-black text-slate-400 hover:text-primary dark:hover:text-white" href="contact.html">Contact</a>
+</nav>
+<div class="p-8 border-t border-slate-100 dark:border-white/5">
+<a href="contact.html" class="w-full bg-primary text-on-primary py-4 rounded-sm font-headline font-bold text-center block text-lg">Inquire Now</a>
+</div>
+</div>
+</div>
+
 </nav>
 
 <main class="pt-24">
@@ -202,4 +229,25 @@
 <p class="text-slate-400 text-xs text-center">© 2024 Mmalefe trading projects. Pretoria &amp; Johannesburg, Gauteng.</p>
 </div>
 </footer>
+<script>
+  // Mobile Menu Logic
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const closeMenuButton = document.getElementById('close-menu-button');
+  const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+
+  if (mobileMenuButton && mobileMenuDrawer) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenuDrawer.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    });
+  }
+
+  if (closeMenuButton && mobileMenuDrawer) {
+    closeMenuButton.addEventListener('click', () => {
+      mobileMenuDrawer.classList.add('translate-x-full');
+      document.body.style.overflow = '';
+    });
+  }
+</script>
 </body></html>
+
